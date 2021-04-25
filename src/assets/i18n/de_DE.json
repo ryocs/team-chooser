@@ -1,4 +1,4 @@
 {
-    "L_HELLO": "Hallo",
-    "L_TEST" : "HALLO1"
+    "T_PLAYER_INPUT" : "Spieler Hinzufügen",
+    "L_NAME" : "Name"
 }

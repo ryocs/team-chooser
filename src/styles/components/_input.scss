@@ -1,0 +1,33 @@
+.float-label {
+  position: relative;
+  margin-top: 1rem;
+
+  input {
+    border: 1px solid $color-shadow;
+
+    &:not(:placeholder-shown) {
+      ~ label {
+        top: 0px;
+        background-color: white;
+        opacity: 1.0;
+        padding: 0 0.4rem;
+        font-size: 10pt;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary-dark;
+      box-shadow: none;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    transition: 0.2s ease-in-out;
+  }
+}

@@ -1,0 +1,27 @@
+@import "variables";
+
+:host {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: $color-primary;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 140%; height: 140%;
+    background-image: url("../../../../assets/images/kicker.jpg");
+    background-size: contain;
+    background-repeat:repeat-y;
+    filter: grayscale(100%);
+    transform: rotate(10deg);
+    overflow: hidden;
+  }
+}
+
+

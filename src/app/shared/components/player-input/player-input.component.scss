@@ -1,0 +1,19 @@
+@import "variables";
+
+:host {
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
+.player-input {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  min-width: 30vw;
+  padding: 2rem;
+  background: $color-bg;
+  border-radius: $r-sm;
+  box-shadow: 2px 2px 10px $color-shadow;
+}

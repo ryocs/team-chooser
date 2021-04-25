@@ -1,0 +1,22 @@
+@import "variables";
+
+:host {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 100%;
+  min-width: 10rem;
+  background-color: $color-bg;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -30%;
+    height: 100%;
+    width: 100%;
+    background-color: $color-bg;
+    transform: skew(-5deg);
+  }
+}
