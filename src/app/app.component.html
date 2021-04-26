@@ -1,4 +1,27 @@
 <content-wrapper class="content-center">
-  <player-input></player-input>
-  <player-list></player-list>
+  <player-input
+    (playerAdded)="playerInputChange($event)"
+    style="min-width: 30vw;"
+    *ngIf="this.playerInput"
+    [@inOutAnimation]
+  >
+  </player-input>
+  <team-input
+    (playerAdded)="playerInputChange($event)"
+    [players]="this.players"
+    style="min-width: 30vw;"
+    *ngIf="this.teamInput"
+    [@inOutAnimation]
+  >
+  </team-input>
+  <player-list [players]="this.players"></player-list>
+  <button
+    [@inOutAnimation]
+    *ngIf="this.players.length > 1"
+    class="button"
+    style="margin-top: 10px;min-width: 30vw; padding-top: 1rem; padding-bottom: 1rem;"
+    (click)="nextBtnPressed()"
+  >
+    {{this.btnTag | translate}}
+  </button>
 </content-wrapper>

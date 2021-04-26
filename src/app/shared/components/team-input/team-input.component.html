@@ -1,0 +1,38 @@
+<div class="team-input">
+  <h3>{{"L_TEAMS" | translate}}</h3>
+  <form [formGroup]="teamInputForm" (ngSubmit)="onSubmit()">
+    <div class="float-label">
+      <input
+        type="number"
+        class="form-control"
+        id="teamSize"
+        formControlName="teamSize"
+        placeholder=" "
+        min=1
+        [max]="this.maxPlayers"/>
+      <label for="teamSize">{{'L_TEAM_PLAYER_COUNT' | translate}}</label>
+    </div>
+    <div class="float-label">
+      <input
+        type="number"
+        class="form-control"
+        id="teamCount"
+        formControlName="teamCount"
+        placeholder=" "
+        min=2
+        [max]="this.maxTeams">
+      <label for="teamCount">{{'L_TEAM_COUNT' | translate}}</label>
+    </div>
+
+    <button type="submit" class="button" style="margin-top: 10px;width: 100%">{{'L_TEAM_DRAW' | translate}}</button>
+  </form>
+
+  <div class="team-list">
+    <div class="team" *ngFor="let team of this._teams">
+      <h3 style.color={{team.color}}>{{team.name}}</h3>
+      <div class="team-player" *ngFor="let player of team.players">
+        {{player.name}}
+      </div>
+    </div>
+  </div>
+</div>

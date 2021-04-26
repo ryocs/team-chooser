@@ -1,4 +1,11 @@
 {
     "T_PLAYER_INPUT" : "Spieler Hinzufügen",
-    "L_NAME" : "Name"
+    "L_NAME" : "Name",
+    "L_PLAYER" : "Spieler",
+    "L_TEAMS" : "Teams",
+    "L_TEAMS_NEXT" : "Teams →",
+    "L_BACK" : "← Zurück",
+    "L_TEAM_PLAYER_COUNT": "Spieleranzahl im Team",
+    "L_TEAM_COUNT": "Teams",
+    "L_TEAM_DRAW": "Auslosen"
 }
