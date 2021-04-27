@@ -4,6 +4,7 @@
 
   input {
     border: 1px solid $color-shadow;
+    border-radius: $r-100px;
 
     &:not(:placeholder-shown) {
       ~ label {

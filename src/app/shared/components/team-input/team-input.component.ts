@@ -144,6 +144,11 @@ export class TeamInputComponent implements OnInit{
         playerIndex++;
       }
     });
+    console.log(playerIndex, this._players.length);
+    if (playerIndex < this._players.length) {
+      this._teams[Math.floor(Math.random()*this._teams.length)].players?.push(playerArr[playerIndex])
+      console.log("JOP");
+    }
   }
 
 }

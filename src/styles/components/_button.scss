@@ -4,10 +4,11 @@ button {
   color: $color-primary-fg;
   font-size: 20pt;
   padding: 0 12pt;
-  border-radius: $r-sm;
+  border-radius: $r-100px;
   z-index: 1;
   box-shadow: 2px 4px 5px $color-shadow;
   transition: 0.25s ease-in-out;
+  user-select: none;
 
   &:hover {
     transform: scale(1.01);

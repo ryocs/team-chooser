@@ -21,6 +21,13 @@
     transform: skew(-5deg);
     z-index: -1;
   }
+
+  @media (max-width: $screen-md) {
+    top:0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .player-list {
@@ -29,10 +36,29 @@
   height: 90%;
   max-height: 90%;
   overflow: auto;
+
+
+  @media (max-width: $screen-md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
 }
 
 .player-item {
   padding: 0.5rem 0;
   margin-left: 0.5rem;
   border-bottom: 1px solid $color-border;
+  font-size: 16pt;
+  max-width: 20vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (max-width: $screen-md) {
+    border: none;
+    border-right: 1px solid $color-border;
+    padding: 0.5rem;
+    max-width: 48vw;
+  }
 }

@@ -1,7 +1,6 @@
 <content-wrapper class="content-center">
   <player-input
     (playerAdded)="playerInputChange($event)"
-    style="min-width: 30vw;"
     *ngIf="this.playerInput"
     [@inOutAnimation]
   >
@@ -9,7 +8,6 @@
   <team-input
     (playerAdded)="playerInputChange($event)"
     [players]="this.players"
-    style="min-width: 30vw;"
     *ngIf="this.teamInput"
     [@inOutAnimation]
   >
