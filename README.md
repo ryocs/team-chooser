@@ -1,6 +1,6 @@
 # TeamChooser
 
-This project was created for liechtenecker
+This project was created for Liechtenecker
 
 ## Development
 
