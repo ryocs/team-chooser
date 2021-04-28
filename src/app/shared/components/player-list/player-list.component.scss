@@ -55,6 +55,26 @@
   text-overflow: ellipsis;
   overflow: hidden;
   min-height: 50px;
+  display: flex;
+
+  .player-name {
+    flex-grow: 1.0;
+  }
+
+  .player-delete {
+    background-color: $color-error;
+    color: $color-error-fg;
+    padding: 0 0.4rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    border-radius: $r-sm;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 2px 3px 10px $color-shadow;
+    }
+  }
 
   @media (max-width: $screen-md) {
     border: none;

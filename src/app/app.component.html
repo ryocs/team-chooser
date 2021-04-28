@@ -12,7 +12,7 @@
     [@inOutAnimation]
   >
   </team-input>
-  <player-list [players]="this.players"></player-list>
+  <player-list [players]="this.players" (playerDeleted)="playerDeleted($event)"></player-list>
   <button
     id="nextBtn"
     [@inOutAnimation]

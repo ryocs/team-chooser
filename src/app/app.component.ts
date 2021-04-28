@@ -62,4 +62,8 @@ export class AppComponent {
     }
   }
 
+  playerDeleted(player: Player) {
+    if (this.players.length < 2 && this.teamInput) this.nextBtnPressed();
+  }
+
 }
