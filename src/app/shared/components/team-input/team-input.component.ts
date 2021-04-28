@@ -91,7 +91,7 @@ export class TeamInputComponent implements OnInit{
     this.maxTeams = this._players.length
     this.maxPlayers = Math.round(this._players.length/2);
 
-    this.teamInputForm.patchValue({teamSize: 1, teamCount: this.maxTeams});
+    this.teamInputForm?.patchValue({teamSize: 1, teamCount: this.maxTeams});
   }
 
   shuffleArray(arr: any) {
