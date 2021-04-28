@@ -1,4 +1,3 @@
-import { TaggedTemplateExpr } from "@angular/compiler";
 import { Pipe, PipeTransform } from "@angular/core";
 
 import lang from "../../../assets/i18n/de_DE.json";

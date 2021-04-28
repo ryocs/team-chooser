@@ -1,8 +1,5 @@
-import { identifierModuleUrl, R3TargetBinder } from '@angular/compiler';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
-import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Player } from 'src/app/core/models/player.model';
 import { Team } from 'src/app/core/models/team.model';
 
@@ -15,18 +12,6 @@ import teamNames from "../../../../assets/data/teamNames.json";
 })
 export class TeamInputComponent implements OnInit{
 
-  constructor(
-    private formBuilder: FormBuilder,
-  ) { }
-
-  maxPlayers: number = 1;
-  maxTeams: number = 2;
-
-  holdChange = false;
-
-  _players: Player[] = [];
-
-  _teams: Team[] = [];
 
   @Input()
   set players(val: Player[]) {this.inputChanged(val)};
@@ -34,12 +19,25 @@ export class TeamInputComponent implements OnInit{
   @Output()
   teams = new EventEmitter<string>();
 
-  teamInputForm = this.formBuilder.group({
-      teamSize: 1,
-      teamCount: 2
-  }, {updateOn: ''});
+  holdChange = false;
+
+  _players: Player[] = [];
+  _teams: Team[] = [];
+
+  maxPlayers: number = 1;
+  maxTeams: number = 2;
+
+  teamInputForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.teamInputForm = this.formBuilder.group({
+      teamSize: 1,
+      teamCount: 2
+    }, {updateOn: ''});
     this.onChange();
   }
 
@@ -86,14 +84,7 @@ export class TeamInputComponent implements OnInit{
 
     if (reset) this.teamInputForm.markAsPristine();
     return dirtyValues;
-}
-
-  /*
-
-    3 player = max 3 teams
-    2 player per team = max = 2; round(playercnt / teamcount)
-
-  */
+  }
 
   inputChanged(val: Player[]) {
     this._players = val;
@@ -101,10 +92,6 @@ export class TeamInputComponent implements OnInit{
     this.maxPlayers = Math.round(this._players.length/2);
 
     this.teamInputForm.patchValue({teamSize: 1, teamCount: this.maxTeams});
-  }
-
-  distinct = (value: any, index: any, self: any) => {
-    return self.indexOf(value) === index;
   }
 
   shuffleArray(arr: any) {
@@ -115,8 +102,8 @@ export class TeamInputComponent implements OnInit{
   }
 
   onSubmit(): void {
-    let playerArr = [...this._players]
-    this.shuffleArray(playerArr);
+    let playerArray = [...this._players]
+    this.shuffleArray(playerArray);
 
     this._teams = [];
 
@@ -139,15 +126,13 @@ export class TeamInputComponent implements OnInit{
     this._teams.forEach(team => {
       team.players =[];
       for (let i=0; i < ts; i++) {
-        if (playerArr[playerIndex] == undefined) return;
-        team.players.push(playerArr[playerIndex]);
+        if (playerArray[playerIndex] == undefined) return;
+        team.players.push(playerArray[playerIndex]);
         playerIndex++;
       }
     });
-    console.log(playerIndex, this._players.length);
     if (playerIndex < this._players.length) {
-      this._teams[Math.floor(Math.random()*this._teams.length)].players?.push(playerArr[playerIndex])
-      console.log("JOP");
+      this._teams[Math.floor(Math.random()*this._teams.length)].players?.push(playerArray[playerIndex])
     }
   }
 

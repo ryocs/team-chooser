@@ -1,24 +1,27 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'player-input',
   templateUrl: './player-input.component.html',
   styleUrls: ['./player-input.component.scss']
 })
-export class PlayerInputComponent {
+export class PlayerInputComponent implements OnInit{
+
+  @Output()
+  playerAdded = new EventEmitter<string>();
+
+  playerInputForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
   ) { }
 
-  @Output()
-  playerAdded = new EventEmitter<string>();
-
-  playerInputForm = this.formBuilder.group({
+  ngOnInit() {
+    this.playerInputForm = this.formBuilder.group({
       name: ''
-  }, {updateOn: 'submit'});
-
+    }, {updateOn: 'submit'});
+  }
 
   onSubmit(): void {
     let name = this.playerInputForm.get("name")?.value;

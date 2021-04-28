@@ -33,20 +33,20 @@ import { Player } from './core/models/player.model';
 export class AppComponent {
   title = 'team-chooser';
 
-  players: Player[] = [];
-
-  playerId = 0;
-
-  btnTag: string = "L_TEAMS_NEXT"
-
   teamInput: boolean = false;
   playerInput: boolean = true;
 
-  playerInputChange(event: any) {
+  btnTag: string = "L_TEAMS_NEXT"
+
+  players: Player[] = [];
+  playerId = 0;
+
+  playerInputChange(name: any) {
     this.playerId++;
-    let player: Player = new Player();
-    player.id = this.playerId;
-    player.name = event;
+    let player: Player = {
+      id: this.playerId,
+      name
+    }
     this.players.push(player);
   }
 

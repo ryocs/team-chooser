@@ -1,6 +1,6 @@
 <h3 style="margin: 10px">{{"L_PLAYER" | translate}}</h3>
 <div class="player-list">
-  <div class="player-item" *ngFor="let player of players; trackBy: trackByFn">
+  <div class="player-item" *ngFor="let player of players; trackBy: trackByPlayer">
     {{player.name}}
   </div>
 </div>

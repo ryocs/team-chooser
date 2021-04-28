@@ -12,7 +12,7 @@ export class PlayerListComponent {
 
   constructor() { }
 
-  trackByFn(index: any, player: Player) {
+  trackByPlayer(index: any, player: Player) {
     return player.id;
   }
 

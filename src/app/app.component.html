@@ -14,10 +14,10 @@
   </team-input>
   <player-list [players]="this.players"></player-list>
   <button
+    id="nextBtn"
     [@inOutAnimation]
     *ngIf="this.players.length > 1"
     class="button"
-    style="margin-top: 10px;min-width: 30vw; padding-top: 1rem; padding-bottom: 1rem;"
     (click)="nextBtnPressed()"
   >
     {{this.btnTag | translate}}
