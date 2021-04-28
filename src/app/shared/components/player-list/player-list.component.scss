@@ -54,6 +54,7 @@
   max-width: 20vw;
   text-overflow: ellipsis;
   overflow: hidden;
+  min-height: 50px;
 
   @media (max-width: $screen-md) {
     border: none;

@@ -2,7 +2,7 @@
   <h3>{{"T_PLAYER_INPUT" | translate}}</h3>
   <form [formGroup]="playerInputForm" (ngSubmit)="onSubmit()">
     <div class="float-label">
-      <input type="text" class="form-control" id="name" formControlName="name" placeholder=" ">
+      <input type="text" class="form-control" id="name" formControlName="name" placeholder=" " autofocus>
       <label for="name">{{'L_NAME' | translate}}</label>
     </div>
 
